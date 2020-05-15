@@ -1,0 +1,48 @@
+<ly-paper>
+  <ly-toolbar position="static" bg="primary" [elevation]="3">
+    <h4 lyTyp="title">Title</h4>
+  </ly-toolbar>
+</ly-paper>
+<div class="main-div">
+  <div class="child-div-1">
+    <ly-card [maxWidth]="320">
+      <ly-card-media
+        bgImg="https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2FMountains-Blue.jpg?alt=media&token=d04f0279-79c6-4752-8b5a-cccd73720243"
+        title="Blue Mountains"
+      ></ly-card-media>
+      <ly-card-content>
+        <h2 lyTyp="headline" gutterBottom>Blue Mountains</h2>
+        <p lyTyp="body1">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+          laboriosam ipsa animi alias rem.
+        </p>
+      </ly-card-content>
+      <ly-card-actions disableActionSpacing>
+        <button ly-button appearance="icon" color="accent">
+          <ly-icon>favorite</ly-icon>
+        </button>
+        <button ly-button appearance="icon">
+          <ly-icon>share</ly-icon>
+        </button>
+      </ly-card-actions>
+    </ly-card>
+  </div>
+  <div class="child-div-2">
+    <ly-accordion appearance="popOut">
+      <ly-expansion-panel expanded>
+        <ly-expansion-panel-header>
+          <ly-panel-title>
+            Header
+          </ly-panel-title>
+          <ly-panel-description>Description</ly-panel-description>
+        </ly-expansion-panel-header>
+        <ng-template lyExpansionPanelContent>
+          Lazy Content
+        </ng-template>
+        <ly-action-row>
+          <button ly-button color="primary">Ok</button>
+        </ly-action-row>
+      </ly-expansion-panel>
+    </ly-accordion>
+  </div>
+</div>

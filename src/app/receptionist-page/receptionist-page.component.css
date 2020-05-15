@@ -1,0 +1,13 @@
+.main-div {
+  display: flex;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.child-div-1 {
+  flex: 1;
+}
+
+.child-div-2 {
+  flex: 2;
+}
