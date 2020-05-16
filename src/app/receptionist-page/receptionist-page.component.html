@@ -1,47 +1,168 @@
 <ly-paper>
   <ly-toolbar position="static" bg="primary" [elevation]="3">
-    <h4 lyTyp="title">Title</h4>
+    <h4 lyTyp="title">Admin</h4>
   </ly-toolbar>
 </ly-paper>
 <div class="main-div">
   <div class="child-div-1">
     <ly-card [maxWidth]="320">
-      <ly-card-media
-        bgImg="https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2FMountains-Blue.jpg?alt=media&token=d04f0279-79c6-4752-8b5a-cccd73720243"
+      <!-- <ly-card-media
+        bgImg="src/app/admin.png"
         title="Blue Mountains"
-      ></ly-card-media>
+      ></ly-card-media> -->
+      <img src="assets/Images/admin.png" width="320px" height="220px" />
       <ly-card-content>
-        <h2 lyTyp="headline" gutterBottom>Blue Mountains</h2>
+        <h2 lyTyp="headline" *ngIf="showAdminData" gutterBottom>Admin</h2>
+        <h2 lyTyp="headline" *ngIf="receptionistData" gutterBottom>
+          Receptionist
+        </h2>
+        <h2 lyTyp="headline" *ngIf="storeManagerData" gutterBottom>
+          Store Head
+        </h2>
+
         <p lyTyp="body1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-          laboriosam ipsa animi alias rem.
+          <button
+            ly-button
+            appearance="fab"
+            raised
+            bg="primary"
+            style="margin-left: 35%;"
+            (click)="logout()"
+          >
+            Logout
+          </button>
         </p>
       </ly-card-content>
-      <ly-card-actions disableActionSpacing>
-        <button ly-button appearance="icon" color="accent">
-          <ly-icon>favorite</ly-icon>
-        </button>
-        <button ly-button appearance="icon">
-          <ly-icon>share</ly-icon>
-        </button>
-      </ly-card-actions>
     </ly-card>
   </div>
-  <div class="child-div-2">
+  <div class="child-div-2" *ngIf="showAdminData">
     <ly-accordion appearance="popOut">
       <ly-expansion-panel expanded>
         <ly-expansion-panel-header>
           <ly-panel-title>
-            Header
+            Admin
           </ly-panel-title>
-          <ly-panel-description>Description</ly-panel-description>
+          <ly-panel-description>
+            <p>
+              This is the Admin Panel having both dashboard of receptionist and
+              store head.
+            </p>
+          </ly-panel-description>
         </ly-expansion-panel-header>
-        <ng-template lyExpansionPanelContent>
+
+        <button ly-button outlined color="primary" (click)="recep()">
+          Receptionist Details
+        </button>
+        &nbsp;
+        <button ly-button outlined color="primary" (click)="storehead()">
+          Store Head Details
+        </button>
+        <p *ngIf="receptionist">
+          Items Present in the Store:
+        </p>
+        <p *ngIf="receptionist">
+          <ly-checkbox checked>ITEM 1</ly-checkbox>
+        </p>
+
+        <p *ngIf="receptionist">
+          <ly-checkbox checked>ITEM 2</ly-checkbox>
+        </p>
+
+        <p *ngIf="receptionist">
+          <ly-checkbox checked>ITEM 3</ly-checkbox>
+        </p>
+        <p *ngIf="store">
+          These are the requirements for the store.
+        </p>
+        <p *ngIf="store">
+          <span class="material-icons">
+            add_circle
+          </span>
+          ITEM 1
+        </p>
+        <p *ngIf="store">
+          <span class="material-icons">
+            add_circle
+          </span>
+          ITEM 2
+        </p>
+        <p *ngIf="store">
+          <span class="material-icons">
+            add_circle
+          </span>
+          ITEM 3
+        </p>
+      </ly-expansion-panel>
+    </ly-accordion>
+  </div>
+  <div class="child-div-2" *ngIf="receptionistData">
+    <ly-accordion appearance="popOut">
+      <ly-expansion-panel expanded>
+        <ly-expansion-panel-header>
+          <ly-panel-title>
+            <b>
+              Receptionist
+            </b>
+          </ly-panel-title>
+          <ly-panel-description>Store Details</ly-panel-description>
+        </ly-expansion-panel-header>
+        <!-- <ng-template lyExpansionPanelContent>
           Lazy Content
-        </ng-template>
-        <ly-action-row>
-          <button ly-button color="primary">Ok</button>
-        </ly-action-row>
+        </ng-template> -->
+        <p>
+          This is the basic store details i.e. daily day to day goods that are
+          being used.
+        </p>
+        <p>
+          Items in the store:
+        </p>
+
+        <p>
+          <ly-checkbox checked>ITEM 1</ly-checkbox>
+        </p>
+
+        <p>
+          <ly-checkbox checked>ITEM 2</ly-checkbox>
+        </p>
+
+        <p>
+          <ly-checkbox checked>ITEM 3</ly-checkbox>
+        </p>
+      </ly-expansion-panel>
+    </ly-accordion>
+  </div>
+  <div class="child-div-2" *ngIf="storeManagerData">
+    <ly-accordion appearance="popOut">
+      <ly-expansion-panel expanded>
+        <ly-expansion-panel-header>
+          <ly-panel-title>
+            <b>
+              Storemanager
+            </b>
+          </ly-panel-title>
+          <ly-panel-description>Requirements Of Store</ly-panel-description>
+        </ly-expansion-panel-header>
+        <p>
+          These are the requirements for the store.
+        </p>
+        <p>
+          <span class="material-icons">
+            add_circle
+          </span>
+          ITEM 1
+        </p>
+        <p>
+          <span class="material-icons">
+            add_circle
+          </span>
+          ITEM 2
+        </p>
+        <p>
+          <span class="material-icons">
+            add_circle
+          </span>
+          ITEM 3
+        </p>
       </ly-expansion-panel>
     </ly-accordion>
   </div>

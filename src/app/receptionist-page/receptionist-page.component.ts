@@ -3,7 +3,22 @@ import { LyTheme2 } from '@alyle/ui';
 
 import { ThemeVariables, ThemeRef, lyl } from '@alyle/ui';
 import { STYLES as EXPANSION_STYLES } from '@alyle/ui/expansion';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
+
+const STYLESBUTTON = () => ({
+  button: {
+    margin: '1em',
+  },
+  labelBefore: {
+    paddingAfter: '8px',
+  },
+  labelAfter: {
+    paddingBefore: '8px',
+  },
+  iconSmall: {
+    fontSize: '20px',
+  },
+});
 const STYLES = (theme: ThemeVariables, ref: ThemeRef) => {
   // The classes for `expansion` are not yet created, therefore,
   // we will create them to use them.
@@ -56,9 +71,42 @@ const STYLES = (theme: ThemeVariables, ref: ThemeRef) => {
 })
 export class ReceptionistPageComponent implements OnInit {
   readonly classes = this._theme.addStyleSheet(STYLES);
+  readonly classesButton = this._theme.addStyleSheet(STYLESBUTTON);
 
   panelStates = [{ state: false }, { state: true }, { state: false }];
-  constructor(private _theme: LyTheme2) {}
+  constructor(private _theme: LyTheme2, private router: Router) {}
 
-  ngOnInit(): void {}
+  showAdminData = false;
+  receptionistData = false;
+  storeManagerData = false;
+  sRole;
+  receptionist = false;
+  store = false;
+  ngOnInit(): void {
+    this.sRole = sessionStorage.getItem('role');
+    console.log(this.sRole);
+    // sessionStorage.setItem("role",this.express.selectedRole)
+
+    if (Number(this.sRole) === Number(1)) {
+      this.showAdminData = true;
+    } else if (Number(this.sRole) === Number(2)) {
+      this.receptionistData = true;
+    } else if (Number(this.sRole) === Number(3)) {
+      this.storeManagerData = true;
+    }
+  }
+
+  logout() {
+    this.router.navigate(['/login']);
+  }
+
+  recep() {
+    this.store = false;
+    this.receptionist = true;
+  }
+
+  storehead() {
+    this.receptionist = false;
+    this.store = true;
+  }
 }

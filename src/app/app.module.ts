@@ -36,9 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { LyExpansionIconModule } from '@alyle/ui';
 import { LyExpansionModule } from '@alyle/ui/expansion';
+import { LoginComponent } from './login/login.component';
+import { LyCheckboxModule } from '@alyle/ui/checkbox';
 
 @NgModule({
-  declarations: [AppComponent, ReceptionistPageComponent],
+  declarations: [AppComponent, ReceptionistPageComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,6 +69,7 @@ import { LyExpansionModule } from '@alyle/ui/expansion';
     ResponsiveModule,
     LyExpansionModule,
     LyExpansionIconModule,
+    LyCheckboxModule,
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig },
