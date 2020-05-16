@@ -71,6 +71,12 @@
         <p *ngIf="receptionist">
           <ly-checkbox checked>ITEM 3</ly-checkbox>
         </p>
+
+        <div *ngIf="store">
+          <h3>
+            TOTAL FUNDS REMAINING: Rs. 10000/-
+          </h3>
+        </div>
         <p *ngIf="store">
           These are the requirements for the store.
         </p>
@@ -142,9 +148,14 @@
           </ly-panel-title>
           <ly-panel-description>Requirements Of Store</ly-panel-description>
         </ly-expansion-panel-header>
+
+        <h3>
+          TOTAL FUNDS REMAINING: Rs. 10000/-
+        </h3>
         <p>
           These are the requirements for the store.
         </p>
+
         <p>
           <span class="material-icons">
             add_circle
